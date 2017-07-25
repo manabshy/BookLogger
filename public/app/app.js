@@ -55,7 +55,13 @@ var app =  angular.module('app', ['ngRoute']);
             .when('/AddBook', {
                 templateUrl: '/app/templates/addBook.html',
                 controller: 'AddBookController',
-                controllerAs: 'AddBook'
+                controllerAs: 'addBook'
             })
+            .when('/EditBook/:bookID', {
+                templateUrl: '/app/templates/editBook.html',
+                controller: 'EditBookController',
+                controllerAs: 'bookEditor'
+            })
+            .otherwise('/');
     }]);
 }());
