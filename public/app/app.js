@@ -1,5 +1,5 @@
 (function() {
-var app =  angular.module('app', ['ngRoute']);
+var app =  angular.module('app', ['ngRoute','ngCookies']);
 // app.config(function($provide){
 //     $provide.provider('books',function(){
 //         this.$get = function(){
@@ -60,8 +60,15 @@ var app =  angular.module('app', ['ngRoute']);
             .when('/EditBook/:bookID', {
                 templateUrl: '/app/templates/editBook.html',
                 controller: 'EditBookController',
-                controllerAs: 'bookEditor'
-            })
+                controllerAs: 'bookEditor',
+                //Angular will wait for the promise to successfully resolve before transitioning to the new route
+                resolve:{
+                    books:function(dataService){
+                        return dataService.getAllBooks();
+                    }
+                }
+            })            
             .otherwise('/');
     }]);
+    app.run
 }());

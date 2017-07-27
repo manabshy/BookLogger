@@ -1,10 +1,10 @@
 (function() {
     // Dependency Annotation
     angular.module('app')
-        .controller('BooksController', ['books','dataService','logger','badgeService',BooksController]);
+        .controller('BooksController', ['books','dataService','logger','badgeService','$cookies','$cookieStore','$log',BooksController]);
 
 
-    function BooksController(books,dataService,logger,badgeService) {
+    function BooksController(books,dataService,logger,badgeService,$cookies,$cookieStore,$log) {
 
         var vm = this;
         vm.appName = books.appName;
@@ -22,11 +22,24 @@
             console.log('Promise notification:' + notification);
 
         }
-        vm.allReaders = dataService.getAllReaders();
+        function errorCallBack(errorMsg){
+            console.log('Error Message:' + errorMsg);
+        }
+        dataService.getAllReaders()
+            .then(getReadersSuccess)
+            .catch(errorCallBack)
+            .finally(getAllReadersComplete);
 
+        function getReadersSuccess(readers){
+            vm.allReaders = readers;
+        }    
+        function getAllReadersComplete(){
+            console.log('getAllReaders has completed');
+        }
         vm.getBadge = badgeService.retrieveBadge;
+        vm.favoriteBook = $cookies.favoriteBook;
+        vm.lastEdited = $cookieStore.get('lastEdited');
         logger.output('BooksController has been created');
-
     }
 
 
