@@ -1,7 +1,7 @@
 (function() {
     // Dependency Annotation
     angular.module('app')
-        .controller('BooksController', ['books','dataService','logger','badgeService','$cookies','$cookieStore','$log',BooksController]);
+        .controller('BooksController', ['books','dataService','logger','badgeService','$cookies','$cookieStore','$log','$http','constants',BooksController]);
 
 
     function BooksController(books,dataService,logger,badgeService,$cookies,$cookieStore,$log) {
