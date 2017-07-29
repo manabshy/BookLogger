@@ -62,11 +62,6 @@ var app =  angular.module('app', ['ngRoute','ngCookies']);
                 controller: 'EditBookController',
                 controllerAs: 'bookEditor',
                 //Angular will wait for the promise to successfully resolve before transitioning to the new route
-                resolve:{
-                    books:function(dataService){
-                        return dataService.getAllBooks();
-                    }
-                }
             })            
             .otherwise('/');
     }]);
