@@ -34,5 +34,53 @@
         "title": "Green Eggs and bacon",
         "author": "Dr. Seuss",
         "year_published": "1960"
+    },
+    {
+        "book_id": 7
+    },
+    {
+        "book_id": 8
+    },
+    {
+        "book_id": 9
+    },
+    {
+        "book_id": 10
+    },
+    {
+        "book_id": 11,
+        "title": "Maa",
+        "author": "aaa",
+        "year_published": "1981"
+    },
+    {
+        "book_id": 12,
+        "title": "The Cat in the Hat",
+        "author": "ss",
+        "year_published": "1981"
+    },
+    {
+        "book_id": 13,
+        "title": "XXXYYY",
+        "author": "TEst",
+        "year_published": "1981"
+    },
+    {
+        "book_id": 14,
+        "title": "Taylor Wimpey",
+        "author": "MJ",
+        "year_published": "1981"
+    },
+    {
+        "book_id": 15,
+        "title": "MJ BISHT",
+        "author": "MJ",
+        "year_published": "1981"
+    },
+    {
+        "book_id": 16,
+        "title": "See how it goes",
+        "author": "MJ BISHT",
+        "year_published": "2017"
     }
 ]

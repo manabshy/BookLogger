@@ -10,7 +10,8 @@
             getAllBooks: getAllBooks,
             getAllReaders: getAllReaders,
             getBookByID: getBookByID,
-            updateBook: updateBook
+            updateBook: updateBook,
+            addBook: addBook
 
         };
 
@@ -57,6 +58,25 @@
             .then(updateBookSuccess)
             .catch(updateBookError);
 
+        }
+
+        function addBook(newBook){
+        
+            return $http({
+                method: 'POST',
+                url: 'api/books',
+                data: newBook
+            })
+            .then(addBookSuccess)
+            .catch(addBookError);
+        }
+
+        function addBookSuccess(response){
+            return 'Book added:' + response.config.data.title;
+        }
+
+        function addBookError(response){
+            return $q.reject('Error adding book. (HTTP status: ' + response.status + ')');
         }
 
         function updateBookSuccess(response) {
